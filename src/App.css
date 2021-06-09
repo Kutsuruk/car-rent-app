@@ -85,15 +85,27 @@
 
 /* Location styles */
 .header__location__container {
-
+    position: relative;
 }
 
 .header__city {
-
+    width: 100%;
+    border-radius: 10px;
 }
 
 .header__location {
+    background-color: #fff;
+    border-radius: 10px;
+    width: 45%;
+    padding: 3%;
 
+    position: absolute;
+    top: 35%;
+    left: 10%;
+}
+
+.header__location h3 {
+    font-weight: bold;
 }
 
 /* Footer styles */
@@ -275,6 +287,16 @@
     .footer .footer-center i {
         margin-left: 0;
     }
+
+    .header__location {
+        background-color: #fff;
+        border-radius: 10px;
+        width: 60%;
+        padding: 3%;
+
+        position: absolute;
+        top: 25%;
+    }
 }
 
 @media (max-width: 414px) {
@@ -298,5 +320,16 @@
     .text__desc {
         font-size: 1em;
         text-align: center;
+    }
+
+    .header__location {
+        background-color: #fff;
+        border-radius: 10px;
+        width: 85%;
+        padding: 3%;
+
+        position: absolute;
+        top: 7.5%;
+        left: 7.5%;
     }
 }
