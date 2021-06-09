@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Carousel, Col, Nav, Row, Tab} from "react-bootstrap";
+import {Carousel, Col, Container, Nav, Row, Tab} from "react-bootstrap";
 
 import skoda from "../Images/skoda_economy.jpeg";
 import passat from "../Images/passat_economy.jpeg";
@@ -24,7 +24,7 @@ import ford from '../Images/ford_van.jpeg';
 class CarouselCar extends Component {
     render() {
         return (
-            <div>
+            <Container>
                 <Tab.Container id="left-tabs-example" defaultActiveKey="economy">
                     <Row>
                         <Col sm={3}>
@@ -43,7 +43,7 @@ class CarouselCar extends Component {
                                 </Nav.Item>
                             </Nav>
                         </Col>
-                        <Col sm={9}>
+                        <Col className='pt-3' sm={9}>
                             <Tab.Content>
                                 <Tab.Pane eventKey="economy">
                                     <Carousel>
@@ -177,7 +177,7 @@ class CarouselCar extends Component {
                         </Col>
                     </Row>
                 </Tab.Container>
-            </div>
+            </Container>
         );
     }
 }
