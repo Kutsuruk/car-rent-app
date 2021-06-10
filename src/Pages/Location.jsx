@@ -3,6 +3,7 @@ import LocationHeader from "../Components/LocationHeader";
 import {Container} from "react-bootstrap";
 import LocationDesc from "../Components/LocationDesc";
 import LocationChart from "../Components/LocationChart";
+import LocationMap from "../Components/LocationMap";
 
 class Location extends Component {
     render() {
@@ -11,6 +12,7 @@ class Location extends Component {
                 <LocationHeader />
                 <LocationDesc />
                 <LocationChart />
+                <LocationMap />
             </Container>
         );
     }
