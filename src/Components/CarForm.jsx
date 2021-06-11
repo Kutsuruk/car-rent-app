@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import emailjs from 'emailjs-com';
 import {Container, Col, Row, Jumbotron, Form, Button} from "react-bootstrap";
 import logo from '../Images/logo.png'
 
@@ -60,6 +61,17 @@ class CarForm extends Component {
         alert(`${type} car was rent by ${name} ${surname}, pick-up date:${dateF} drop-off date:${dateT} in ${country}/${city}`);
     };
 
+    sendEmail = (e) => {
+        e.preventDefault();
+
+        emailjs.sendForm('service_t4aflb8', 'template_0kifisv', e.target, 'user_0BrQ1O55LNJg4BF4168Lg')
+            .then((result) => {
+                console.log(result.text);
+            }, (error) => {
+                console.log(error.text);
+            });
+        e.target.reset()
+    }
 
     render() {
         const { name, surname, dateF, dateT, type, country, city } = this.state;
@@ -76,7 +88,7 @@ class CarForm extends Component {
                                 provide, and it will be sent directly to us in preparation for
                                 your first appointment
                             </p>
-                            <Form onSubmit={this.handleSubmit}>
+                            <Form onSubmit={this.sendEmail}>
                                 <Form.Group>
                                     <h2>Car Rent</h2>
                                     <Form.Label>Name</Form.Label>
@@ -85,6 +97,7 @@ class CarForm extends Component {
                                         value={name}
                                         placeholder="Name"
                                         onChange={this.setName}
+                                        name="name"
                                         required
                                     />
                                 </Form.Group>
@@ -95,6 +108,7 @@ class CarForm extends Component {
                                         value={surname}
                                         placeholder="Surname"
                                         onChange={this.setSurname}
+                                        name="surname"
                                         required
                                     />
                                 </Form.Group>
@@ -105,6 +119,7 @@ class CarForm extends Component {
                                         value={country}
                                         placeholder="Country"
                                         onChange={this.setCountry}
+                                        name="country"
                                         required
                                     />
                                 </Form.Group>
@@ -115,6 +130,7 @@ class CarForm extends Component {
                                         value={city}
                                         placeholder="City"
                                         onChange={this.setCity}
+                                        name="city"
                                         required
                                     />
                                 </Form.Group>
@@ -124,6 +140,7 @@ class CarForm extends Component {
                                         type="date"
                                         value={dateF}
                                         onChange={this.setDateF}
+                                        name="dateF"
                                         required
                                     />
                                 </Form.Group>
@@ -133,6 +150,7 @@ class CarForm extends Component {
                                         type="date"
                                         value={dateT}
                                         onChange={this.setDateT}
+                                        name="dateT"
                                         required
                                     />
                                 </Form.Group>
@@ -199,7 +217,11 @@ class CarForm extends Component {
                                     <Form.Label>
                                         Please write your comments and suggestions if any
                                     </Form.Label>
-                                    <Form.Control as="textarea" rows="3" />
+                                    <Form.Control
+                                        as="textarea"
+                                        rows="3"
+                                        name="message"
+                                    />
                                 </Form.Group>
                                 <Form.Group>
                                     <Form.Check
